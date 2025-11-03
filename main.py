@@ -160,18 +160,18 @@ def get_args():
         help="Relative weight of the l0 norm cost in the Fourier domain for autotuning.",
     )
     optional.add_argument(
-    	"--output-flatfield",
-    	dest="output_flatfield",
-    	required=False,
-    	default=None,
-    	help="Filename for flatfield output. If empty will default to {input filename}. A sufix will be added to differenciate between flatfield and darkfield."
+        "--output-flatfield",
+        dest="output_flatfield",
+        required=False,
+        default=None,
+        help="Filename for flatfield output. If empty will default to {input filename}. A sufix will be added to differenciate between flatfield and darkfield.",
     )
     optional.add_argument(
-    	"--output-darkfield",
-    	dest="output_darkfield",
-    	required=False,
-    	default=None,
-    	help="Filename for darkfield output. If empty will default to {input filename}. A sufix will be added to differenciate between flatfield and darkfield."
+        "--output-darkfield",
+        dest="output_darkfield",
+        required=False,
+        default=None,
+        help="Filename for darkfield output. If empty will default to {input filename}. A sufix will be added to differenciate between flatfield and darkfield.",
     )
 
     arg = parser.parse_args()
@@ -179,12 +179,12 @@ def get_args():
     # Convert input and output to Pathlib
     arg.input = Path(arg.input)
     arg.output_folder = Path(arg.output_folder)
-    
+
     if arg.output_flatfield is None:
-    	arg.output_flatfield = splitext(args.input.name)[0]
-    	
+        arg.output_flatfield = splitext(arg.input.name)[0]
+
     if arg.output_darkfield is None:
-    	arg.output_darkfield = splitext(args.input.name)[0]
+        arg.output_darkfield = splitext(arg.input.name)[0]
 
     return arg
 
@@ -285,8 +285,6 @@ def main(args):
 if __name__ == "__main__":
     # Import arguments
     args = get_args()
-    
-    print(args)
 
     # Run main and check time
     main(args)
